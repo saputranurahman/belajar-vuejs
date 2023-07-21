@@ -1,41 +1,121 @@
-<script setup>
-import { ref } from 'vue'
-
-let msg = "hello world"
-let rawHtml = "<li>apakah saput ganteng?</li>"
-
-let angka1 = 200
-let angka2 = 10
-let hasil = angka1 + angka2
-let hasil2 = angka1 - angka2
-let hasil3 = angka1 * angka2
-let hasil4 = angka1 / angka2
-</script>
-
-
-
 <template>
-    <div id="app">
-        <h1>{{ msg }}</h1>
-        <span v-html="rawHtml"></span>
-        <span v-html="rawHtml" style="color: red"></span>
-        <button :disabled="isButtonDisabled" onclick="alert('ciee suka ya')">iya</button> &ensp;
-        <button :disabled="isButtonDisabled" onclick="alert('mwhehe')">bangettt</button><br>
-        <a v-bind:href="url"> silahkan klik link di sini </a><br>
-        <a :href="url"> sama aja link </a> <br>
-        <a v-on:click="doSomething"> link juga </a> <br>
-        <input v-model="message" placeholder="masukan email anda"> <br>
-        <input v-model="message" placeholder="masukan password anda"> <br>
-        <h1>SEKARANG ARITMATIKA</h1>
+    <div>
+      <h2>FORMULIR</h2>
+      <form @submit.prevent="submitForm">
+        <label for="">Nama : </label> 
+        <input type="text" v-model="kontak.nama" >
         <br>
-        bilangan1 = {{ angka1 }} <br>
-         bilangan2 = {{ angka2 }} <br>
-          hasil penjumlahan = {{ angka1 }} + {{ angka2 }} = {{ hasil }} <br>
-          hasil pengurangan = {{ angka1 }} - {{ angka2 }} = {{ hasil2 }} <br>
-          hasil perkalian = {{ angka1 }} * {{ angka2 }} = {{ hasil3 }} <br>
-          hasil pembagian = {{ angka1 }} / {{ angka2 }} = {{ hasil4 }}
-        
+        <br>
+        <label for="">Kelas : </label>
+        <input type="kelas" v-model="kontak.kelas">
+       <br>
+        <br>
+        <label for="">Alamat : </label>
+        <input type="alamat" v-model="kontak.alamat">
+        <br>
+        <br>
+        <label for="">Nilai Mtk : </label>
+        <input type="number" v-model="kontak.mtk">
+        <br>
+        <br>
+        <label for="">Nilai B.Indo : </label>
+        <input type=" number" v-model="kontak.bindo">
+        <br>
+        <br>
+        <label for="">Nilai Ipa : </label>
+        <input type="number" v-model="kontak.ipa">
+        <br>
+        <br>
+        <button type="submit">Kirim</button>
+      </form>
+      <div v-if="showResult">
+        <h1>HASIL</h1>
+        <table border="1" style="width: 97%;">
+            <tr>
+                <th>NAMA</th>
+                <th>KELAS</th>
+                <th>ALAMAT</th>
+                <th>NILAI MATEMATIKA</th>
+                <th>NILAI INDONESIA</th>
+                <th>NILAI IPA</th>
+                <th>TOTAL NILAI</th>
+                <th>KETERANGAN</th>
+            </tr>
+            <tr>
+                <td>{{ nama }}</td>
+                <td>{{ kelas }}</td>
+                <td>{{ alamat }}</td>
+                <td>{{ mtk }}</td>
+                <td>{{ bindo }}</td>
+                <td>{{ ipa }}</td>
+                <td>{{ total }}</td>
+                <td>{{ keterangan }}</td>
 
-        
+            </tr>
+           
+        </table>
+       
+       
+      </div>
     </div>
-</template>
+  </template>
+  
+  <script>
+  
+  import { ref } from 'vue';
+  
+  export default {
+    data() {
+      return {
+        kontak: {
+          nama: '',
+          kelas: '',
+          alamat: '',
+          mtk: '',
+          bindo: '',
+          ipa: '',
+          keterangan : '',
+        },
+        showResult: ref(false),
+        nama: ref(''),
+        kelas: ref(''),
+        alamat: ref(''),
+        mtk: ref( ),
+        bindo: ref( ),
+        ipa: ref( ),
+        total : 0,
+        keterangan:(''),
+      };
+    },
+    methods: {
+      submitForm() {
+        this.nama = this.kontak.nama;
+        this.kelas = this.kontak.kelas;
+        this.alamat = this.kontak.alamat;
+        this.mtk = this.kontak.mtk;
+        this.bindo = this.kontak.bindo;
+        this.ipa = this.kontak.ipa;    
+        this.total = parseInt(this.mtk) + parseInt(this.ipa) + parseInt(this.bindo);
+        if (this.total > 240) {
+            this.keterangan = "LULUS"
+        } else {
+            this.keterangan= "TIDAK LULUS"
+        }
+
+          
+        this.showResult = true;
+      },
+    },
+    
+  };
+  </script>
+  
+  <style>
+  h2 {
+    color: rgb(7, 154, 184);
+  }
+ 
+  .is-invalid {
+    border-color: rgb(5, 5, 5);
+  }
+  </style>

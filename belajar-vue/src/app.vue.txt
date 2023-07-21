@@ -1,0 +1,27 @@
+
+        NAMA : 'Saputra Nurahman',
+        KELAS : 'XII RPL 2',
+        NISN : '0012345678',
+        SEKOLAH : 'SMK ASSALAAM BANDUNG'
+    },
+    {
+        NAMA : 'Rival Nugraha',
+        KELAS : 'XII RPL 2',
+        NISN : '0022345678',
+        SEKOLAH : 'SMK ASSALAAM BANDUNG'
+    },
+    {
+        NAMA : 'M Daffa Fauzan',
+        KELAS : 'XII RPL 1',
+        NISN : '0032345678',
+        SEKOLAH : 'SMK ASSALAAM BANDUNG'
+    },
+    {
+        NAMA : 'Pasya M',
+        KELAS : 'XII RPL 2',
+        NISN : '0042345678',
+        SEKOLAH : 'SMK ASSALAAM BANDUNG'
+    },
+    {
+        NAMA : 'M Fauzi',
+        KELAS : 'XII RPL 2',
