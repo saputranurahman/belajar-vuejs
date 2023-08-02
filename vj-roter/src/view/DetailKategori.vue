@@ -1,4 +1,5 @@
 <template>
+   <center>
     <h1>Produk {{ Detail.nama }}</h1>
     <div class="flex-container">
         <div v-for="produk in data" :key="produk.id" class="card">
@@ -8,6 +9,7 @@
             </router-link>
         </div>
     </div>
+   </center>
 </template>
 
 <script>
@@ -37,9 +39,7 @@ import { Kategori } from '../assets/Kategori';
   }
 </script>
 <style scoped>
-.flex-container{
-  display: flex;
-}
+
 .card{
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     transition: 0.3s;

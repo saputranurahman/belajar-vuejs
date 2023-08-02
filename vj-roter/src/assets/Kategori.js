@@ -22,7 +22,7 @@ export const Kategori = {
         {
             "id": 4,
             "nama1" : 'Perlengkapan Ruman',
-            "img" : "perlengkapanrumah.jpg"
+            "img" : "perlengkapanrumah.png"
             
         },
         {
