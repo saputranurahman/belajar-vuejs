@@ -1,5 +1,6 @@
 <template>
    <center>
+    
     <h1>Kategori</h1>
     <div class="flex-container">
         <div v-for="Kategori in kategoriData" :key="Kategori.id" class="card">
@@ -9,6 +10,7 @@
             </router-link>
         </div>
     </div>
+    
    </center>
 </template>
 

@@ -56,20 +56,20 @@ export const produk = {
             "img" : "h2r.jpg",
             "des" : "Ninja H2 menampilkan power dari mesin hypersport supercharged Kawasaki yang mencengangkan. Dilengkapi dengan mesin supercharged 998 cc In-Line Four, elektronik yang canggih, dan rem Brembo terbaru, Ninja H2 memberikan performa terbaik di jalan raya."
         },
-        {
-            "id":8,
-            "nama" : 'Pulpen',
-            "harga" : "Rp. 10.000,00",
-            "id_kategori" : 5,
-            "img" : "pulpen.jpg"
-        },
-        {
-            "id":9,
-            "nama" : 'Pensil',
-            "harga" : "Rp. 5.000,00",
-            "id_kategori" : 5,
-            "img" : "pensil1.jpg"
-        },
+        // {
+        //     "id":8,
+        //     "nama" : 'Pulpen',
+        //     "harga" : "Rp. 10.000,00",
+        //     "id_kategori" : 5,
+        //     "img" : "pulpen.jpg"
+        // },
+        // {
+        //     "id":9,
+        //     "nama" : 'Pensil',
+        //     "harga" : "Rp. 5.000,00",
+        //     "id_kategori" : 5,
+        //     "img" : "pensil1.jpg"
+        // },
         {
             "id":10,
             "nama" : 'Sapu',
@@ -99,13 +99,13 @@ export const produk = {
             "img" : "zx.jpg",
             "des" : "Ninja ZX-10R baru memiliki apa yang diperlukan untuk juara: semua body aerodinamis baru dengan winglet terintegrasi, lampu depan LED kecil & ringan, instrumentasi warna TFT, dan konektivitas Smartphone plus pembaruan yang berasal dari keahlian Kawasaki Racing Team World Superbike. Sekarang setelah Anda memiliki Ninja yang berfokus pada balapan, Face Yourself."
         },
-        {
-            "id":14,
-            "nama" : 'Penghapus',
-            "harga" : "Rp. 3.000,00",
-            "id_kategori" : 5,
-            "img" : "penghapus.jpg"
-        },
+        // {
+        //     "id":14,
+        //     "nama" : 'Penghapus',
+        //     "harga" : "Rp. 3.000,00",
+        //     "id_kategori" : 5,
+        //     "img" : "penghapus.jpg"
+        // },
         {
             "id": 15,
             "nama" : 'Sepatu',

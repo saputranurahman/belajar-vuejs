@@ -1,5 +1,8 @@
 <template>
    <center>
+   
+    <div v-if="data.length == 0"><h1>PRODUK TIDAK ADA</h1></div>
+    <div v-else>
     <h1>Produk {{ Detail.nama }}</h1>
     <div class="flex-container">
         <div v-for="produk in data" :key="produk.id" class="card">
@@ -9,6 +12,8 @@
             </router-link>
         </div>
     </div>
+    </div>
+  
    </center>
 </template>
 

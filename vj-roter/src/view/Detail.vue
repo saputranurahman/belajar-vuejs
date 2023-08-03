@@ -1,9 +1,12 @@
 <template>
    <center>
+    <div v-if="detail == undefined"><h1>ID YANG ANDA CARI TIDAK ADA</h1></div>
+    <div v-else>
     <h1>Detail {{ detail.nama }}</h1>
     <img :src="getImgSrc(detail.img)" alt="Gambar">
     <h4>Harga : {{ detail.harga }}</h4>
     <h5>Deskripsi : {{ detail.des }}</h5>
+    </div>
    </center>
 </template>
 <script>
