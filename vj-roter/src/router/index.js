@@ -8,8 +8,10 @@ import Produk from "@/view/Produk.vue";
 import Detail from "@/view/Detail.vue";
 import DetailKategori from "@/view/DetailKategori.vue";
 import Kategori from "@/view/Kategori.vue";
+import Counter from "@/view/Counter.vue";
 import NotFound from "@/view/NotFound.vue";
 import Login from '@/view/Login.vue';
+import Todo from '@/view/Todo.vue'
 
 import {users} from '@/assets/users'  
 const routes = [ 
@@ -71,6 +73,18 @@ const routes = [
     name: "Detail",
     component: Detail,
     props: true,
+  },
+  {
+    path: "/counter",
+    name: "Counter",
+    component: Counter,
+    
+  },
+  {
+    path: "/todo",
+    name: "Todo",
+    component: Todo,
+    
   },
 ];
 
