@@ -1,6 +1,13 @@
+<script>
+  
+</script>
+
 <template>
   <div id="nav">
+  
     <router-link to="/">Home</router-link>
-  </div>
-  <router-view />
+    <router-link to="/user">User</router-link>
+ 
+</div>
+<router-view/>
 </template>

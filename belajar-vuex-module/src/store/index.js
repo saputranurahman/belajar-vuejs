@@ -2,7 +2,7 @@ import { createStore } from "vuex";
 import donatur from "./modules/donatur";
 import clients from "./modules/clients";
 import transaksi from "./modules/transaksi";
-
+import users from "./modules/users";
 const store = createStore({
     state: {
         isLoading: false,
@@ -11,6 +11,7 @@ const store = createStore({
         donatur,
         clients,
         transaksi,
+        users,
     },
 });
 
