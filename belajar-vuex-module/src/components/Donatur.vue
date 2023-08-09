@@ -19,5 +19,5 @@
                 return this.$store.state.donatur.listDonatur
             }
         }
-    }
-</script> 
+    }
+</script>

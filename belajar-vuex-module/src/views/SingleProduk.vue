@@ -1,12 +1,12 @@
 <template>
     <section class="py-12 sm:py-16">
         <div class="container mx-auto px-4">
-            <div v-if="produk">
+            <div v-if="product">
                 <nav class="flex">
                     <ol role="list" class="flex items-center">
                         <li class="text-left">
                             <div class="-m-1">
-                                <a href="/"
+                                <a href="#"
                                     class="rounded-md p-1 text-sm font-medium text-gray-600 focus:text-gray-900 focus:shadow hover:text-gray-800">
                                     Home </a>
                             </div>
@@ -18,7 +18,7 @@
                                 <div class="-m-1">
                                     <a href="/produk"
                                         class="rounded-md p-1 text-sm font-medium text-gray-600 focus:text-gray-900 focus:shadow hover:text-gray-800">
-                                        produk </a>
+                                        Products </a>
                                 </div>
                             </div>
                         </li>
@@ -29,7 +29,7 @@
                                 <div class="-m-1">
                                     <a href="#"
                                         class="rounded-md p-1 text-sm font-medium text-gray-600 focus:text-gray-900 focus:shadow hover:text-gray-800"
-                                        aria-current="page"> {{ produk.title }} </a>
+                                        aria-current="page"> {{ product.title }} </a>
                                 </div>
                             </div>
                         </li>
@@ -41,7 +41,7 @@
                         <div class="lg:flex lg:items-start">
                             <div class="lg:order-2 lg:ml-5">
                                 <div class="max-w-xl overflow-hidden rounded-lg">
-                                    <img class="h-full w-full max-w-full object-cover" :src="produk.image" alt="" />
+                                    <img class="h-full w-full max-w-full object-cover" :src="product.image" alt="" />
                                 </div>
                             </div>
 
@@ -49,15 +49,15 @@
                                 <div class="flex flex-row items-start lg:flex-col">
                                     <button type="button"
                                         class="flex-0 aspect-square mb-3 h-20 overflow-hidden rounded-lg border-2 border-gray-900 text-center">
-                                        <img class="h-full w-full object-cover" :src="produk.image" alt="" />
+                                        <img class="h-full w-full object-cover" :src="product.image" alt="" />
                                     </button>
                                     <button type="button"
                                         class="flex-0 aspect-square mb-3 h-20 overflow-hidden rounded-lg border-2 border-transparent text-center">
-                                        <img class="h-full w-full object-cover" :src="produk.image" alt="" />
+                                        <img class="h-full w-full object-cover" :src="product.image" alt="" />
                                     </button>
                                     <button type="button"
                                         class="flex-0 aspect-square mb-3 h-20 overflow-hidden rounded-lg border-2 border-transparent text-center">
-                                        <img class="h-full w-full object-cover" :src="produk.image" alt="" />
+                                        <img class="h-full w-full object-cover" :src="product.image" alt="" />
                                     </button>
                                 </div>
                             </div>
@@ -65,7 +65,7 @@
                     </div>
 
                     <div class="lg:col-span-2 lg:row-span-2 lg:row-end-2">
-                        <h1 class="sm: text-2xl font-bold text-gray-900 sm:text-3xl">{{ produk.title }}</h1>
+                        <h1 class="sm: text-2xl font-bold text-gray-900 sm:text-3xl">{{ product.title }}</h1>
 
                         <div class="mt-5 flex items-center">
                             <div class="flex items-center">
@@ -100,7 +100,7 @@
                                         class=""></path>
                                 </svg>
                             </div>
-                            <p class="ml-2 text-sm font-medium text-gray-500">{{ produk.rating.rate }}</p>
+                            <p class="ml-2 text-sm font-medium text-gray-500">{{ product.rating.rate }}</p>
                         </div>
 
                         <h2 class="mt-8 text-base text-gray-900">Category</h2>
@@ -109,14 +109,14 @@
                                 <input type="radio" name="type" value="Powder" class="peer sr-only" checked />
                                 <p
                                     class="peer-checked:bg-black peer-checked:text-white rounded-lg border border-black px-6 py-2 font-bold">
-                                    {{ produk.category }}</p>
+                                    {{ product.category }}</p>
                             </label>
                         </div>
 
                         <div
                             class="mt-10 flex flex-col items-center justify-between space-y-4 border-t border-b py-4 sm:flex-row sm:space-y-0">
                             <div class="flex items-end">
-                                <h1 class="text-3xl font-bold">${{ produk.price }}</h1>
+                                <h1 class="text-3xl font-bold">${{ product.price }}</h1>
                                 <!-- <span class="text-base">/month</span> -->
                             </div>
 
@@ -174,13 +174,13 @@
                         </div>
 
                         <div class="mt-8 flow-root sm:mt-12">
-                            <p class="mt-4">{{ produk.description }}</p>
+                            <p class="mt-4">{{ product.description }}</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div v-else>
-                produk not found.
+                Product not found.
             </div>
         </div>
     </section>
@@ -192,7 +192,7 @@ import { mapGetters, mapActions } from "vuex";
 export default {
     computed: {
         ...mapGetters("produk", ["getProdukById"]),
-        produk() {
+        product() {
             return this.getProdukById(Number(this.$route.params.id));
         },
     },

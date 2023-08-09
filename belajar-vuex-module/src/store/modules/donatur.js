@@ -2,10 +2,10 @@ const donatur = {
     namespaced: true,
     state: {
         listDonatur: [
-            { name: "Saputra"},
-            { name: "Rival"},
-            { name: "Nazril"},
             { name: "Dimas"},
+            { name: "Amalia"},
+            { name: "Asep"},
+            { name: "Frenski"},
         ],
     },
     mutations: {

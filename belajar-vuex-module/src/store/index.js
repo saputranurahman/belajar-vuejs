@@ -3,8 +3,10 @@ import donatur from "./modules/donatur";
 import clients from "./modules/clients";
 import transaksi from "./modules/transaksi";
 import users from "./modules/users";
-import kereta from "./modules/kereta";
+import stasiun from "./modules/stasiun"
 import produk from "./modules/produk";
+import kategori from "./modules/kategori";
+
 const store = createStore({
     state: {
         isLoading: false,
@@ -14,8 +16,10 @@ const store = createStore({
         clients,
         transaksi,
         users,
-        kereta,
-        produk
+        stasiun,
+        produk,
+        kategori,
+        
     },
 });
 

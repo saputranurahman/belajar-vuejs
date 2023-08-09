@@ -1,9 +1,11 @@
 import { createWebHistory, createRouter } from "vue-router";
 import Home from "../views/Home.vue";
-import User from "../views/User.vue";
-import Kereta from "../views/Kereta.vue"
-import Produk from "../views/Produk.vue"
-import SingleProduk from "../views/SingleProduk.vue";
+import User from "../views/Users.vue";
+import Stasiun from "../views/Stasiun.vue";
+import Produk from "../views/Produk.vue";
+import SingleProduk from "../views/SingleProduk.vue"
+import Kategori from "../views/Kategori.vue";
+
 const routes = [
     {
         path: "/",
@@ -11,14 +13,14 @@ const routes = [
         component: Home,
     },
     {
-        path: "/user",
+        path: "/users",
         name: "User",
         component: User,
     },
     {
-        path: "/kereta",
-        name: "Kereta",
-        component: Kereta,
+        path: "/stasiun",
+        name: "Stasiun",
+        component: Stasiun,
     },
     {
         path: "/produk",
@@ -26,10 +28,16 @@ const routes = [
         component: Produk,
     },
     {
+        path: "/kategori",
+        name: "Kategori",
+        component: Kategori,
+    },
+    {
         path: "/produk/:id",
         name: "SingleProduk",
         component: SingleProduk,
     },
+    
 ];
 
 const router = createRouter({

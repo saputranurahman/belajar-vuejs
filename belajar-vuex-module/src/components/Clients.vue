@@ -21,6 +21,6 @@ export default {
         listBantuan() {
             return this.$store.state.clients.listBantuan
         }
-    }
+    }
 }
 </script>
