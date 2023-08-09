@@ -15,7 +15,7 @@ const store = createStore({
         transaksi,
         users,
         kereta,
-        produk,
+        produk
     },
 });
 
