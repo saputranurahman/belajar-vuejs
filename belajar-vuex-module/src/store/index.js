@@ -4,6 +4,7 @@ import clients from "./modules/clients";
 import transaksi from "./modules/transaksi";
 import users from "./modules/users";
 import kereta from "./modules/kereta";
+import produk from "./modules/produk";
 const store = createStore({
     state: {
         isLoading: false,
@@ -13,7 +14,8 @@ const store = createStore({
         clients,
         transaksi,
         users,
-        kereta
+        kereta,
+        produk,
     },
 });
 
