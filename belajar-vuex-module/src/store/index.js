@@ -6,6 +6,7 @@ import users from "./modules/users";
 import stasiun from "./modules/stasiun"
 import produk from "./modules/produk";
 import kategori from "./modules/kategori";
+import auth from "./modules/auth";
 
 const store = createStore({
     state: {
@@ -19,6 +20,7 @@ const store = createStore({
         stasiun,
         produk,
         kategori,
+        auth,
         
     },
 });

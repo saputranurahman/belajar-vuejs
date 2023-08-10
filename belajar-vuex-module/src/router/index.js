@@ -5,6 +5,7 @@ import Stasiun from "../views/Stasiun.vue";
 import Produk from "../views/Produk.vue";
 import SingleProduk from "../views/SingleProduk.vue"
 import Kategori from "../views/Kategori.vue";
+import Login from "../views/Login.vue"
 
 const routes = [
     {
@@ -31,6 +32,11 @@ const routes = [
         path: "/kategori",
         name: "Kategori",
         component: Kategori,
+    },
+    {
+        path: "/login",
+        name: "Login",
+        component: Login,
     },
     {
         path: "/produk/:id",
