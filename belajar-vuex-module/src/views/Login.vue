@@ -36,17 +36,16 @@
                         <a href="#"
                             class="flex cursor-pointer items-center gap-2 text-indigo-500 no-underline hover:text-indigo-500">
                             <span
-                                class="flex-shrink-0 text-3xl font-black lowercase tracking-tight opacity-100">KCStore</span>
+                                class="flex-shrink-0 text-3xl font-black lowercase tracking-tight opacity-100">LOGIN...</span>
                         </a>
                     </div>
                     <!-- /Logo -->
-                    <h4 class="mb-2 font-medium text-gray-700 xl:text-xl">Welcome to KCStore!</h4>
-                    <p class="mb-6 text-gray-500">Please sign-in to access your account</p>
+                    <h4 class="mb-2 font-medium text-gray-700 xl:text-xl">Selamat Datang </h4>
+                    <p class="mb-6 text-gray-500">Tolong Login untuk mengakses aplikasi ini.</p>
 
                     <form id="" class="mb-4" @submit.prevent="performLogin">
                         <div class="mb-4">
-                            <label for="email" class="mb-2 inline-block text-xs font-medium uppercase text-gray-700">Email
-                                or Username</label>
+                            <label for="email" class="mb-2 inline-block text-xs font-medium uppercase text-gray-700">Silakan Masukan Email Anda</label>
                             <input type="text"
                                 class="block w-full cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-indigo-500 focus:bg-white focus:text-gray-600 focus:shadow"
                                 id="email" v-model="username" placeholder="Enter your email or username" autofocus="" />
@@ -79,7 +78,7 @@
                         <div class="mb-4">
                             <button
                                 class="grid w-full cursor-pointer select-none rounded-md border border-indigo-500 bg-indigo-500 py-2 px-5 text-center align-middle text-sm text-white shadow hover:border-indigo-600 hover:bg-indigo-600 hover:text-white focus:border-indigo-600 focus:bg-indigo-600 focus:text-white focus:shadow-none"
-                                type="submit">Sign in</button>
+                                type="submit">Login</button>
                         </div>
                     </form>
 

@@ -1,6 +1,6 @@
 <template>
     <div class="block w-full overflow-auto scrolling-touch">
-        <table class="w-full max-w-full mb-4 bg-transparent table-hover table-bordered"> 
+        <table class="w-full max-w-full mb-4 bg-transperent table-hover table-bordered">
             <thead>
                 <tr>
                     <th>#</th>
@@ -20,9 +20,8 @@
         </table>
     </div>
 </template>
-
 <script>
-    import { mapState } from 'vuex';
+    import { mapState } from 'vuex' 
     export default {
         computed: {
             ...mapState('transaksi', {

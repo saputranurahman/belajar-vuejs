@@ -1,24 +1,24 @@
 const transaksi = {
     namespaced: true,
     state: {
-        listTransaksi:[
+        listTransaksi : [
             {
                 id: "TRX1P1",
                 donatur: "Anugrah Sandi",
                 bantuan: "Gempa Lombok",
-                jumlah: "100000",
+                jumlah: 100000,
             },
             {
                 id: "TRX1P2",
                 donatur: "Dharma",
                 bantuan: "Banjir Bandang",
-                jumlah: "250000",
+                jumlah: 250000,
             },
             {
                 id: "TRX1P3",
                 donatur: "Asis Ramadhan",
                 bantuan: "Beasiswa Pendidikan",
-                jumlah: "300000",
+                jumlah: 300000,
             },
         ],
     },
@@ -29,13 +29,13 @@ const transaksi = {
     },
     actions: {
         save_donasi({ commit, rootState }, payload) {
-            rootState.isloading = true;
+            rootState.isLoading = true;
             setTimeout(() => {
                 commit("ADD_DONASI", payload);
-                rootState.isloading = false;
+                rootState.isLoading = false;
             }, 1000);
-        },
-    },
-};
+        }
+    }
+}
 
 export default transaksi;

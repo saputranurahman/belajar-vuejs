@@ -9,11 +9,11 @@ const clients = {
         ],
     },
     mutations: {
-        //NONE
+
     },
     actions: {
-        //NONE
-    },
+
+    }
 };
 
 export default clients;

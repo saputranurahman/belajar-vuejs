@@ -12,20 +12,23 @@ const users = {
         async fetchUsers({ commit }) {
             try {
                 const data = await axios.get(
-                    "https://jsonplaceholder.typicode.com/users"
+                    "https://fakestoreapi.com/users?limit=5"
                 );
                 commit("SET_USERS", data.data);
             } catch (error) {
-                alert(error);
-                console.log(error);
+                alert (error);
+                console.log(error)
             }
         },
     },
     mutations: {
         SET_USERS(state, users) {
-            state.userData = users;
+            state.userData = users
         },
-    },
-};
+        ADD_USER(state, user){
+            state.userData.push(user);
+        }
+    }
+}
 
-export default users;
+export default users

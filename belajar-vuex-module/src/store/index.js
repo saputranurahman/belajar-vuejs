@@ -3,10 +3,11 @@ import donatur from "./modules/donatur";
 import clients from "./modules/clients";
 import transaksi from "./modules/transaksi";
 import users from "./modules/users";
-import stasiun from "./modules/stasiun"
-import produk from "./modules/produk";
-import kategori from "./modules/kategori";
+import wilayah from "./modules/wilayah";
+import product from "./modules/product";
+import category from "./modules/category";
 import auth from "./modules/auth";
+
 
 const store = createStore({
     state: {
@@ -17,12 +18,11 @@ const store = createStore({
         clients,
         transaksi,
         users,
-        stasiun,
-        produk,
-        kategori,
-        auth,
-        
-    },
+        wilayah,
+        product,
+        category,
+        auth
+    }
 });
 
 export default store;
