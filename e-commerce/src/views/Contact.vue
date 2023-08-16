@@ -14,20 +14,24 @@
             
             </div>
           </li>
-          <li class="my-6 flex items-center text-left">
+          <a href="https://www.instagram.com/sputxxzz_">
+            <li class="my-6 flex items-center text-left">
             <img src="https://cdn.icon-icons.com/icons2/2066/PNG/512/instagram_icon_125245.png" class="h-8 mr-3" alt="Flowbite Logo">
             <div>
               <a class="cursor-pointer font-serif text-base md:text-lg" href="#">sputxxzz_</a>
             
             </div>
           </li>
-          <li class="my-6 flex items-center text-left">
+          </a>
+         <a href="https://wa.link/a6ko79">
+            <li class="my-6 flex items-center text-left">
             <img src="https://www.freepnglogos.com/uploads/logo-telepon-png/phone-telephone-communication-vector-graphic-10.png" class="h-8 mr-3" alt="Flowbite Logo">
             <div>
               <p class="font-serif text-base md:text-lg">083805907891</p>
              
             </div>
           </li>
+         </a>
         </ul>
       </div>
       <div class="order-first col-span-4 max-w-screen-md px-8 py-10 md:order-last md:col-span-2 md:px-10 md:py-12">
