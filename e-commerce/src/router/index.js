@@ -4,6 +4,10 @@ import Home from "../views/Home.vue"
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue"
 import Product from "../views/product.vue"
+import SingleProduct from "../views/SingleProduct.vue"
+import Contact from "../views/Contact.vue"
+import Cart from "../views/Cart.vue"
+import Checkout from "../views/Checkout.vue"
 import store from "../store";
 
 const routes = [
@@ -29,6 +33,26 @@ const routes = [
         name: "Product",
         component: Product,
         meta: { requireLogin: true },
+    },
+    {
+        path: "/singleproduct",
+        name: "SingleProduct",
+        component: SingleProduct,
+    },
+    { 
+        path: "/contact",
+        name: "Contact",
+        component: Contact,
+    },
+    {
+        path: "/cart",
+        name: "Cart",
+        component: Cart,
+    },
+    {
+        path: "/checkout",
+        name: "Checkout",
+        component: Checkout,
     },
    
 ]
