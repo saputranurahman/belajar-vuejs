@@ -10,7 +10,7 @@
           <li class="mb-6 flex items-start text-left">
             <img src="https://cdn-icons-png.flaticon.com/512/542/542638.png" class="h-8 mr-3" alt="Flowbite Logo">
             <div>
-              <a class="cursor-pointer font-serif text-base md:text-lg" href="#">saputranurahman24@gmail.com</a>
+              <a class="cursor-pointer font-serif text-base md:text-lg" href="mailto:saputranurahman24@gmail.com?subject=haiiiii%20saputtt">saputranurahman24@gmail.com</a>
             
             </div>
           </li>
@@ -18,7 +18,7 @@
             <li class="my-6 flex items-center text-left">
             <img src="https://cdn.icon-icons.com/icons2/2066/PNG/512/instagram_icon_125245.png" class="h-8 mr-3" alt="Flowbite Logo">
             <div>
-              <a class="cursor-pointer font-serif text-base md:text-lg" href="#">sputxxzz_</a>
+              <a class="cursor-pointer font-serif text-base md:text-lg" href="https://www.instagram.com/sputxxzz_">sputxxzz_</a>
             
             </div>
           </li>

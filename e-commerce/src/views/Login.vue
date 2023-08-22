@@ -46,9 +46,9 @@
                     <form id="" class="mb-4" @submit.prevent="performLogin">
                         <div class="mb-4">
                             <label for="email" class="mb-2 inline-block text-xs font-medium uppercase text-gray-700">Silakan Masukan Email Anda</label>
-                            <input type="text"
+                            <input type="email"
                                 class="block w-full cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-indigo-500 focus:bg-white focus:text-gray-600 focus:shadow"
-                                id="email" v-model="username" placeholder="Enter your email or username" autofocus="" />
+                                id="email" v-model="email" placeholder="Enter your email" autofocus="" />
                         </div>
                         <div class="mb-4">
                             <div class="flex justify-between">
@@ -100,7 +100,7 @@ import { mapActions } from 'vuex';
 export default {
     data() {
         return {
-            username: '',
+            email: '',
             password: '',
         };
     },
@@ -108,7 +108,7 @@ export default {
         ...mapActions('auth', ['login']),
         async performLogin() {
             const credentials = {
-                username: this.username,
+                email: this.email,
                 password: this.password,
             };
 
