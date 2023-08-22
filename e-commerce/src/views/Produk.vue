@@ -18,7 +18,7 @@
 
   <div v-if="getProduk == undefined">Loading....</div>
 <div v-else>
-<div class="grid md:grid-cols-3 gap-8  mt-10 pl-5">
+<div class="grid md:grid-cols-3 gap-8  mt-10 pl-5" id="produk">
    <div  v-for="product in getProduk.slice(1,7)" :key="product.id">
        
    <div class="relative m-10 w-full max-w-xs overflow-hidden rounded-lg bg-white shadow-md">
