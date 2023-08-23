@@ -10,6 +10,7 @@ import Cart from "../views/Cart.vue"
 import Checkout from "../views/Checkout.vue"
 import Brand from "../views/Brand.vue"
 import Category from "../views/Category.vue"
+import Profile from "../views/Profile.vue"
 import store from "../store";
 
 const routes = [
@@ -29,6 +30,8 @@ const routes = [
         path: "/register",
         name: "Register",
         component: Register,
+        meta: { requireGuest: true },
+
     },
     {
         path: "/produk",
@@ -37,7 +40,7 @@ const routes = [
         meta: { requireLogin: true },
     },
     {
-        path: "/produk/:id",
+        path: "/produk/:slug",
         name: "SingleProduct",
         component: SingleProduct,
     },
@@ -70,6 +73,12 @@ const routes = [
         component: Category,
         meta: { requireLogin: true },
     },
+    {
+        path: "/profile",
+        name: "Profile",
+        component: Profile,
+        meta: { requireLogin: true },
+    },
 ]
 
 const router = createRouter({
@@ -90,6 +99,6 @@ router.beforeEach((to, from, next) => {
         next("/login");
     } else {
         next();
-    }
+    }  
 });
 export default router;
