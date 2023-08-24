@@ -8,7 +8,7 @@
               <div class="lg:order-2 lg:ml-5">
                 <div class="max-w-xl overflow-hidden rounded-lg">
                   <img class="h-full w-full max-w-full object-cover"
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNhBHfd28t9yezsDR0mlJA64kfP1kr-5NWwQ&usqp=CAU"
+                    src="https://ecommerce.olipiskandar.com/public/uploads/all/UpUx213sXC5XBW07vbXn1vkWMWxTu95CDDbMzwkF.jpg"
                     alt="" />
                 </div>
               </div>
@@ -18,19 +18,19 @@
                   <button type="button"
                     class="flex-0 aspect-square mb-3 h-20 overflow-hidden rounded-lg border-2 border-gray-900 text-center">
                     <img class="h-full w-full object-cover"
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNhBHfd28t9yezsDR0mlJA64kfP1kr-5NWwQ&usqp=CAU"
+                      src="https://ecommerce.olipiskandar.com/public/uploads/all/UpUx213sXC5XBW07vbXn1vkWMWxTu95CDDbMzwkF.jpg"
                       alt="" />
                   </button>
                   <button type="button"
                     class="flex-0 aspect-square mb-3 h-20 overflow-hidden rounded-lg border-2 border-transparent text-center">
                     <img class="h-full w-full object-cover"
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNhBHfd28t9yezsDR0mlJA64kfP1kr-5NWwQ&usqp=CAU"
+                      src="https://ecommerce.olipiskandar.com/public/uploads/all/UpUx213sXC5XBW07vbXn1vkWMWxTu95CDDbMzwkF.jpg"
                       alt="" />
                   </button>
                   <button type="button"
                     class="flex-0 aspect-square mb-3 h-20 overflow-hidden rounded-lg border-2 border-transparent text-center">
                     <img class="h-full w-full object-cover"
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNhBHfd28t9yezsDR0mlJA64kfP1kr-5NWwQ&usqp=CAU"
+                      src="https://ecommerce.olipiskandar.com/public/uploads/all/UpUx213sXC5XBW07vbXn1vkWMWxTu95CDDbMzwkF.jpg"
                       alt="" />
                   </button>
                 </div>
@@ -40,7 +40,7 @@
 
           <div class="lg:col-span-2 lg:row-span-2 lg:row-end-2">
             <h1 class="sm: text-2xl font-bold text-gray-900 sm:text-3xl"> {{ product.name }}</h1>
-            <span >{{ product.slug }}</span>
+            <span>{{ product.slug }}</span>
 
             <div class="mt-5 flex items-center">
               <div class="flex items-center">
@@ -134,66 +134,77 @@
                 <h1 class="text-3xl font-bold">Rp{{ product.base_price }}</h1>
               </div>
 
-              <button type="button"
-                class="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-gray-900 bg-none px-11 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-gray-800">
-                <router-link to="/cart">
+              <div v-if="token">
+                <button type="button"
+                  class="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-gray-900 bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-gray-800">
                   <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 mr-3 h-5 w-5" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                   </svg>
-                  Add to cart
-                </router-link>
-              </button>
+                  + Cart
+                </button>
+              </div>
 
+              <div v-else>
+                <router-link to="/login">
+                  <button type="button"
+                    class="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-gray-900 bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-gray-800">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 mr-3 h-5 w-5" fill="none" viewBox="0 0 24 24"
+                      stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                    </svg>
+                    + Cart
+                  </button>
+                </router-link>
+              </div>
             </div>
 
-            <ul class="mt-8 space-y-2">
-              <li class="flex items-center text-left text-sm font-medium text-gray-600">
-                <svg class="mr-2 block h-5 w-5 align-middle text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none"
-                  viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    class=""></path>
-                </svg>
-                Free shipping worldwide
-              </li>
-
-              <li class="flex items-center text-left text-sm font-medium text-gray-600">
-                <svg class="mr-2 block h-5 w-5 align-middle text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none"
-                  viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" class="">
-                  </path>
-                </svg>
-                Cancel Anytime
-              </li>
-            </ul>
           </div>
 
-          <div class="lg:col-span-3">
-            <div class="border-b border-gray-300">
-              <nav class="flex gap-4">
-                <a href="#" title=""
-                  class="border-b-2 border-gray-900 py-4 text-sm font-medium text-gray-900 hover:border-gray-400 hover:text-gray-800">
-                  Description </a>
+          <ul class="mt-8 space-y-2">
+            <li class="flex items-center text-left text-sm font-medium text-gray-600">
+              <svg class="mr-2 block h-5 w-5 align-middle text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  class=""></path>
+              </svg>
+              Free shipping worldwide
+            </li>
 
-                <a href="#" title=""
-                  class="inline-flex items-center border-b-2 border-transparent py-4 text-sm font-medium text-gray-600">
-                  Reviews
-                  <span class="ml-2 block rounded-full bg-gray-500 px-2 py-px text-xs font-bold text-gray-100">
-                    1,209 </span>
-                </a>
-              </nav>
-            </div>
+            <li class="flex items-center text-left text-sm font-medium text-gray-600">
+              <svg class="mr-2 block h-5 w-5 align-middle text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" class="">
+                </path>
+              </svg>
+              Cancel Anytime
+            </li>
+          </ul>
+        </div>
 
-            <div class="mt-8 flow-root sm:mt-12">
-              <p class="mt-4">mxbzbcdjbznxbcnzbcjkabjasbjbcBCsnbcj</p>
-            </div>
+        <div class="lg:col-span-3">
+          <div class="border-b border-gray-300">
+            <nav class="flex gap-4">
+              <a href="#" title=""
+                class="border-b-2 border-gray-900 py-4 text-sm font-medium text-gray-900 hover:border-gray-400 hover:text-gray-800">
+                Description </a>
+
+              <a href="#" title=""
+                class="inline-flex items-center border-b-2 border-transparent py-4 text-sm font-medium text-gray-600">
+                Reviews
+                <span class="ml-2 block rounded-full bg-gray-500 px-2 py-px text-xs font-bold text-gray-100">
+                  1,209 </span>
+              </a>
+            </nav>
+          </div>
+
+          <div class="mt-8 flow-root sm:mt-12">
+            <p class="mt-4">safsgsgrgssssaeagwe</p>
           </div>
         </div>
-      </div>
-      <div v-else>
-        Product not found.
       </div>
     </div>
   </section>
@@ -203,6 +214,11 @@
 import { mapGetters, mapActions } from "vuex";
 
 export default {
+  data() {
+    return {
+      token: null,
+    }
+  },
   computed: {
     ...mapGetters("product", ["getProdukBySlug"]),
     product() {
@@ -210,18 +226,21 @@ export default {
     },
   },
   methods: {
-    ...mapActions("product", ["fetchSingleProduk"]),
-    ...mapActions("product", ["fetchProduk"])
+    ...mapActions("product", ["fetchSingleProduk", "fetchProduk"]),
+    ...mapActions("cart", ["fetchCart"])
 
   },
   beforeMount() {
-    this.fetchProduk()
+    this.fetchProduk();
+    this.fetchCart();
   },
   mounted() {
     const produkSlug = this.$route.params.slug;
     this.fetchSingleProduk(produkSlug)
-  }
 
-
+    //cek token
+    const cektoken = localStorage.getItem('token');
+    this.token = cektoken
+  },
 };
 </script>

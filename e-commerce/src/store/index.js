@@ -4,6 +4,7 @@ import brand from './modules/brand';
 import category from './modules/category';
 import product from './modules/product'
 import user from './modules/user';
+import cart from './modules/cart';
 
 
 
@@ -16,7 +17,8 @@ const store = createStore({
     brand,
     category,
     product,
-    user
+    user,
+    cart,
     
   },
 });

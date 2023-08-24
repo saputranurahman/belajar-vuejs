@@ -24,7 +24,7 @@
    <div class="relative m-10 w-full max-w-xs overflow-hidden rounded-lg bg-white shadow-md">
        <a href="#">
            <img class="h-60 rounded-t-lg object-cover"
-               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNhBHfd28t9yezsDR0mlJA64kfP1kr-5NWwQ&usqp=CAU"
+               src="https://ecommerce.olipiskandar.com/public/uploads/all/UpUx213sXC5XBW07vbXn1vkWMWxTu95CDDbMzwkF.jpg"
                alt="product image" />
        </a>
        <span
