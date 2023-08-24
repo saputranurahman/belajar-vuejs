@@ -41,15 +41,19 @@ const auth = {
           credentials
         );
         const token = response.data.access_token;
+    
 
         
         localStorage.setItem('token', token);
-       
+   
 
         commit('SET_TOKEN', token);
+        commit('SET_LOGIN_ERROR',null);
         console.log("token saved:", token);
         return true;
       } catch (error) {
+        const errorMessage =error.response.data.message || "Login failed";
+        commit("SET_LOGIN_ERROR",errorMessage);
         console.error(error);
         return false;
       }
@@ -62,7 +66,7 @@ const auth = {
       commit('SET_TOKEN', null);
       //   Log Token removed
       console.log('Token Removed:', token);
-      this.$router.push("/login");
+      window.location = "/login";
     },
   },
   mutations: {

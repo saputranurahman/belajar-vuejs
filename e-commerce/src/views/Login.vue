@@ -1,7 +1,7 @@
 <template>
     <div class="flex min-h-screen w-screen w-full items-center justify-center text-gray-600 bg-gray-50">
         <div class="relative mt-8">
-
+  
             <div class="hidden sm:block h-56 w-56 text-indigo-300 absolute a-z-10 -left-20 -top-20">
                 <svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'>
                     <defs>
@@ -42,18 +42,18 @@
                     <!-- /Logo -->
                     <h4 class="mb-2 font-medium text-gray-700 xl:text-xl">Selamat Datang </h4>
                     <p class="mb-6 text-gray-500">Tolong Login untuk mengakses aplikasi ini.</p>
-
+  
                     <form id="" class="mb-4" @submit.prevent="performLogin">
                         <div class="mb-4">
                             <label for="email" class="mb-2 inline-block text-xs font-medium uppercase text-gray-700">Silakan Masukan Email Anda</label>
                             <input type="email"
                                 class="block w-full cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-indigo-500 focus:bg-white focus:text-gray-600 focus:shadow"
-                                id="email" v-model="email" placeholder="Enter your email" autofocus="" />
+                                id="email" v-model="email" placeholder="Enter your email" autofocus="" required />
                         </div>
                         <div class="mb-4">
                             <div class="flex justify-between">
                                 <label class="mb-2 inline-block text-xs font-medium uppercase text-gray-700"
-                                    for="password">Password</label>
+                                    for="password">Password</label> 
                                 <a href="auth-forgot-password-basic.html"
                                     class="cursor-pointer text-indigo-500 no-underline hover:text-indigo-500">
                                     <small class=" ">Forgot Password?</small>
@@ -81,7 +81,7 @@
                                 type="submit">Login</button>
                         </div>
                     </form>
-
+  
                     <p class="mb-4 text-center">
                         New on kcstore?
                         <a href="/register" class="cursor-pointer text-indigo-500 no-underline hover:text-indigo-500"> Create an
@@ -92,21 +92,20 @@
             <!-- /Register -->
         </div>
     </div>
-</template>
-
-<script>
-import { mapActions, mapGetters } from 'vuex';
-import auth from '../store/modules/auth';
-
-export default {
+  </template>
+  
+  <script>
+  import { mapActions  ,mapGetters} from 'vuex';
+  
+  export default {
     data() {
         return {
             email: '',
             password: '',
         };
     },
-    computed: {
-        ...mapGetters('auth',['loginError', 'isAuthenticated']),
+    computed :{
+        ...mapGetters('auth',['loginError','isAuthenticated']),
     },
     methods: {
         ...mapActions('auth', ['login']),
@@ -115,20 +114,20 @@ export default {
                 email: this.email,
                 password: this.password,
             };
-
+  
             const success = await this.login(credentials);
-
+  
             if (success && this.isAuthenticated) {
                 // Redirect to the desired route on successful login
                 this.$router.push('/');
             } else {
-               if(this.loginError){
-                alert(this.loginError)
-               }else{
-                alert("Login Failed")
-               }
+                if (this.loginError){
+                alert("Login Failed");
+                } else {
+                    alert("Login Failed");
+                }
             }
         },
-    },
-};
-</script>
+    },
+  };
+  </script>
