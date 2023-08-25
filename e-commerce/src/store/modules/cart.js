@@ -3,37 +3,37 @@ import axios from "axios";
 const cart = {
     namespaced: true,
     state: {
-       cariData : []
+      cart: [],
     },
-    getters: {
-       getCart: (state) => state.cariData,
-    },
-    actions: {
-        async fetchCart({ commit }) {
-            try{
-                // const token = localStorage.getItem('token');
-                const dataCart = await axios.post(
-                    "https://ecommerce.olipiskandar.com/api/v1/carts",{
-                        "temp_user_id" : null
-                    }, {
-                    headers : {
-                        Authorization : `Bearer ${localStorage.getItem('token')}`
+    
+    getters:{
+        getCart: (state) => state.cart
+     },
+    actions:{
+        async fetchCart({commit}) {
+            try {
+                const datacart = await axios.post("https://ecommerce.olipiskandar.com/api/v1/carts", {
+                    "temp_user_id": null
+                }, {
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
                     }
-                    }
-
-                );
-                console.log(dataCart.data['cart_items'])
-                commit("SET_CART", dataCart.data['cart_items']);
+                } )
+                console.log(datacart.data.cart_items.data);
+                commit('SET_CART',datacart.data.cart_items.data)
             } catch (error) {
-                alert(error);
-                console.log(error);
+                alert('Ada Error')
+                console.log(error)
             }
-        },
-    },
-    mutations: {
-        SET_CART(state,  ) {
-            state.dataBrands = cart;
         }
+
+
     },
+    mutations:{
+        SET_CART(state, cart) {
+            state.cart = cart
+        }
+    }
+
 };
 export default cart;

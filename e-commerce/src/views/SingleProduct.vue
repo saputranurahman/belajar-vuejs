@@ -135,7 +135,7 @@
               </div>
 
               <div v-if="token">
-                <button type="button"
+                <button   @click="addToCart(product.id)" type="button"
                   class="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-gray-900 bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-gray-800">
                   <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 mr-3 h-5 w-5" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor" stroke-width="2">
@@ -217,6 +217,7 @@ export default {
   data() {
     return {
       token: null,
+      cek: 1
     }
   },
   computed: {
@@ -227,7 +228,25 @@ export default {
   },
   methods: {
     ...mapActions("product", ["fetchSingleProduk", "fetchProduk"]),
-    ...mapActions("cart", ["fetchCart"])
+    ...mapActions("cart", ["fetchCart"]),
+    
+    async addToCart(productId) {
+        try {
+          await this.$store.dispatch('product/addToCart', productId);
+          this.fetchCart();
+        } catch (error) {
+          console.error(error);
+        }
+      },
+        tambah() {
+            this.cek++
+        },
+        kurang() {
+            if (this.cek > 1) {
+                this.cek--
+            }
+
+        }
 
   },
   beforeMount() {
@@ -236,6 +255,7 @@ export default {
   },
   mounted() {
     const produkSlug = this.$route.params.slug;
+    console.log("ProdukSlug:", produkSlug)
     this.fetchSingleProduk(produkSlug)
 
     //cek token
