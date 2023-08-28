@@ -1,11 +1,11 @@
 <template>
-  <div class="pt-20 bg-amber-50">
+  <div class="pt-20 bg-white-50">
       <div class="container mx-auto px-4">
         <div class="message text-center">
           <h1 class="text-3xl font-bold pt-10">Terimakasih Telah Memesan</h1>
           <p>Kode Pemesanan : {{ getOrder.code }}</p>
           <p class="italic">
-            Terimakasih atas kepercayaan Tn./Ny. {{ getOrder.user.name }} kepada ArtisanAlley
+            Terimakasih atas kepercayaan Tn./Ny. {{ getOrder.user.name }} 
           </p>
         </div>
         <div class="mx-10 mt-10">
@@ -83,6 +83,67 @@
         {{ orderData }}
       </div>
     </div>
+
+    <br>
+
+    <div class="relative overflow-x-auto mx-8">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    Product name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Jumlah
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Harga
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Total
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="bg-white dark:bg-gray-800" v-for="(order,index) in getOrder.orders[0].products.data">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  {{ order.name }}
+                </th>
+                <td class="px-6 py-4">
+                    {{ order.quantity }}
+                </td>
+                <td class="px-6 py-4">
+                    {{order.price}}
+                </td>
+                <td class="px-6 py-4">
+                    {{ order.total }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="mt-6 border-t border-b py-2">
+            <div class="flex items-center justify-between">
+              <p class="text-sm font-medium text-gray-900">Total Belanja</p>
+              <p class="font-semibold text-gray-900">Rp. {{ getOrder.grand_total }}</p>
+            </div>
+            <div class="flex items-center justify-between">
+              <p class="text-sm font-medium text-gray-900">Biaya Jasa</p>
+              <p class="font-semibold text-gray-900">
+                Rp. {{ (getOrder.orders[0].products.data.length) * 10000 }}
+              </p>
+            </div>
+          </div>
+          <div class="mt-6 flex items-center justify-between">
+            <p class="text-sm font-medium text-gray-900">Total Harga : </p>
+            <p class="text-2xl font-semibold text-gray-900">
+              Rp. {{(getOrder.grand_total) + (getOrder.orders[0].products.data.length * 10000) }}
+            </p>
+          </div>
+</div>
+
+<br>
+<br>
   </template>
   
   <script>
