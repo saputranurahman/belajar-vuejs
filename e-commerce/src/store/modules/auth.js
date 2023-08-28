@@ -58,6 +58,25 @@ const auth = {
         return false;
       }
     },
+
+    async getUserAddress({state}){
+      try {
+        const response = await axios.get(
+          "https://ecommerce.olipiskandar.com/api/v1/user/addresses",
+          {
+            headers: {
+              Authorization: `Bearer ${state.token}`,
+            },
+          } 
+        );
+        console.log(response);
+        return response.data;
+      }catch (error){
+        console.error(error)
+        return null;
+      }
+    },
+    
     logout({ commit }) {
       // Remove token from localStorage
       const token = localStorage.getItem('token');

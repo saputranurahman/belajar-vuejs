@@ -11,6 +11,7 @@ import Checkout from "../views/Checkout.vue"
 import Brand from "../views/Brand.vue"
 import Category from "../views/Category.vue"
 import Profile from "../views/Profile.vue"
+import OrderPage from "../views/OrderPage.vue"
 import store from "../store";
 
 const routes = [
@@ -78,6 +79,13 @@ const routes = [
         name: "Profile",
         component: Profile,
         meta: { requireLogin: true },
+    },
+    {
+        path: "/order/:orderCode",
+        name: "OrderPage",
+        component: OrderPage,
+        props: true,
+        
     },
 ]
 

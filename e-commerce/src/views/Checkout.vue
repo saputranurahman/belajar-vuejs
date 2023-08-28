@@ -8,51 +8,79 @@
       <p class="text-xl font-medium">Order Summary</p>
 
       <div class="mt-8 space-y-3 rounded-lg border bg-white px-2 py-4 sm:px-6">
-        <div class="flex flex-col rounded-lg bg-white sm:flex-row">
-          <img class="m-2 h-24 w-28 rounded-md border object-cover object-center"
-            src="https://sneakers.id/images/products/553558-040/2_1672814156.jpg" alt="" />
-          <div class="flex w-full flex-col px-4 py-4">
-            <span class="font-semibold">AIR JORDAN 1 LOW SHADOW 3.0</span>
-            <span class="float-right text-gray-400">42EU - 8.5US</span>
-            <p class="text-lg font-bold">Rp 3.399.000</p>
+        <div v-for="cart in getCart" :key="cart.cart_id">
+          <div class="flex flex-col rounded-lg bg-white sm:flex-row">
+            <img class="m-2 h-24 w-28 rounded-md border object-cover object-center"
+              src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+              alt="" />
+            <div class="flex w-full flex-col px-4 py-4">
+              <span class="font-semibold">{{ cart.name }}</span>
+              <span class="float-right text-gray-400">Jumlah {{ cart.qty }}</span>
+              <p class="text-lg font-bold">Rp {{ cart.regular_price * cart.qty }}</p>
+            </div>
           </div>
         </div>
-
       </div>
 
-      <p class="mt-8 text-lg font-medium">Jenis Pengiriman</p>
+      <p class="mt-8 text-lg font-medium">Shipping Methods</p>
       <form class="mt-5 grid gap-6">
         <div class="relative">
-          <input class="peer hidden" id="radio_1" type="radio" name="radio" checked />
+          <input class="peer hidden" id="radio_3" type="radio" value="cash_on_delivery" v-model="paymentType" />
           <span
             class="peer-checked:border-gray-700 absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
           <label
             class="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4"
-            for="radio_1">
+            for="radio_3">
             <img class="w-14 object-contain"
-              src="data:image/png;base64,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"
+              src="data:image/png;base64,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"
               alt="" />
-            <div class="ml-5">
-              <span class="mt-2 font-semibold">JNE EXPRESS</span>
-              <p class="text-slate-500 text-sm leading-6">Delivery: 2-4 Days</p>
+            <div class="ml-5 mt-4">
+              <span class="mt-2 font-semibold">Cash Or Duel</span>
+              <!-- <p class="text-slate-500 text-sm leading-6">Delivery: 2-4 Days</p> -->
             </div>
           </label>
         </div>
-        <div class="relative">
-          <input class="peer hidden" id="radio_2" type="radio" name="radio" checked />
-          <span
-            class="peer-checked:border-gray-700 absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
-          <label
-            class="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4"
-            for="radio_2">
-            <img class="w-14 object-contain"
-              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATYAAACiCAMAAAD84hF6AAAAk1BMVEX////mISnkAADmHSboMznlABHmGiPlAA7lEh31uLnlABDlCRfoNz7lERz85+jlBRX73t/qSU/lAAj4yMn4ztDtdXn++fnuf4HqUVb62dr74eL97e72vsDtbXHynJ/oPkTsaGzqVVr+8vPviIv4ysvsYGX0q63nJy/xk5b0qqz1tLbxkJPtbHDyo6XnLTTvg4bpREoLk3Q6AAAMI0lEQVR4nO2caXuqPBCGK5FARUBQcd/X2mr9/7/unUASkkGP2tPT5b3m/tRLFsk4mXlmEvr0RBAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQfxDTs0ZcD4nSdLv9xeL/lAeyFY9QVczEby9zYGNpD+WJ0939b+EPX+XBT5CK2UA1/inTB5pO6F/AW4QnuS5mcfZ3+En32WBDzF2axZ8o470wtotHOVs++Dmubdu1fkmA3yMd2Sc4CgPZDN2a6i+MvGS3TzXhnsIZ/5N4/8gCbcH5KlfPUpvDj4YyHNXDzqb3x1FiOzaA/5IljvkJ7E60vaqw2WhlzpeIC8Je/LU6FFnY6NvGu5nMcChra+ObN3KaN3aqj2K1tOmV9hQDf5RZ6vt+onBuT688nQ/FmycYKqOHLEtuHdUM+kYCyOqU0cX/PJPiBScU6Tm0P1d2UDQ9e0hpXoIuWnMwZ4Mnzi4NXbS97idcq0bLUr6gt9ntac+ygiuDs0H2w9ZzZpJCU+V+Iich6zmT750gP+EEXI2vtCHOnYmdbfWhS+pPhM77C2zLb9ueP8KZJtasNeH7IjFZ+hCR4mP1oP5IE8HfUXy67KBYIrGnLb1oexszt/4xb5wMFd/TR5ztjwj6Eou/IVx7akyZuYbgsoqrpzIvnCgvAQrmEdgwe+02tPJ1qmlagPW5iyNr91h4VwB5RrTyRS/rA7VjFASDN/NozNj5MHD957YduNJhfPg9l1+JGMkVL2xeXRqKDfn0Zoxa1qOzOqf+NjfDe73cCuvZX45cq997R5XGNq39ruf+NjfDRK7DKmMaemM/vzBWyO1HB9vX/JrCO2M4PfQ8WZp1qD12K2RCE4fvPwnM0Blp4vb+Z1GadLHaiLU5GT1/0FtoHhGmiutSPZVaVj3oeiGmpwPz/GfDGqIM149pYx+bPeIw6DQVvaj/gegjHAh23XO5VwLNxducY2eHdp+YUvtKiPUEEdNDmDvmYb19pfuchm7/HjMU384g4ZltZqDQttygU5wD9bxPywIoPLDKtp+Oy92ImU7+/Bgh3sbzE4LL+nb4YoXoWQTPOCnPx4krVBoawe4GBd2M2PUtuG7Tn86uFB3oVt76387kq8kQ0uktpAfe5cW8VholN9b4a08cGa9MbYc6qw8XNH+YJa4RWk2JNquHdPVH5yV/raX+oX5DuplRPatWfNrRvQlrG1Fagn5gV12hbVSvsU6vi30hziZoI0l4etXjekLQA1xPi8PLevW/PV6y41WxiyVJVhWimUHZQak2ux+1C8HNcRNIT83ywfmgO7ISkOytFhXKF2K7VDsOttR0/ntexdMsNgtg9azqbpYsSwTmc23fNKVNYaxTJgTocYu6kdFh+cS+EnGh+eDbJB04AP4CTJ5xriMmQP1Uaf8idbmfdTjj7vJuf9uVSWd9/456X6OyyNFagj5zNoJo2JZJzDsBnXWtmzGhSv71qhpbLfaITo4rsYLoTR2XKcQP1HqOcLpB8UZDS91NnLtpycvaqTOm3LeWVreyCmk4ZinYuNi6My1dQczJxSrZM7sM5wejc0Q8mYzvBbruXswLgiSdc2wImo4oRYBKi7yyKf2ZrrwA3RiJbX7vHBcsTPFD8MQvDbcFYMFtcRC+dFJjj8QWVxS7FCcOowFngtf0FAqtO3wWthw4ZH88yeYDTXESyGf1Q1n48be0L2Rernhe4yj1UDUInBRnoUMvOv2JMLi8IW5hHlJmZvf6hVSd3f/ulrADxgUvVMPTLt/fX0VBV9ceHfk1Nj5Xd6nK0wJ0YXvpuPniauz+yBgLFyNx6IFln7C9mA0tlQLecsNU1Pfv6G2psRHrZER2j0ysxPG8sS4vVG3F+YJKQpZWnQTNrxWrNhCtmdcXA4hRW6PhZKQF3eEBw0sib7cMd7MrwN/l9Nk4TOeBzqYLPyRHs4V+DUhbxZGqE5dXNxb1EDBFk1/3BcWFphbn3TSPG0suOpm7pj8YjBxsbLd9nSqnzEZh48BkjYvnmqmZk7g5bN04OjrTrH397IbNcTLbGfNUd+O5qNmtU6t1gAr27gx6kcJC6DSXsyp7AXKuUgOWofaGStmGxRyKkQmnNXz3xgUlK2zJz6TkfBpsi+SMLirK9Px9L3z9zXe8zUhb2VY3JUdBtVK1cERY2bbNkCVFzgJ9k9w8HAPUkcaBrxPZl+x2ppraThDVnDLJpOCRxyzbgNxx0dxFGar+5liG22fL73d2oRUaWZ3KpvZfNxLW2Jlg35jSKQxsmQbvtNnOkYeXOVarRCcWVwPiTQt7tNxa0HxGzewo0Ou4X1bZYDns9Mnrv7jjKBVm7XVudon36KF/EoarSgbHIfBAnjRIleKjKlngEQqd3VCug9E2swg2hVhJIMHj3Nx3GrgxxN7iHnj1TTcIRVlTvezlhtRQ9xIbXaFX9378WoJF1Zd0EKhLcALyyI6FK8kTbQbiDQUaIcHrykyVJuDDBNDHvrSRC0ojuNCkrTB2xL5XlPhiEUICcJuWSNkeTT2vc3nzNTBVSFv7ymNq0tO1gqof6geR36MVl/y+0uJqgMR1Lesph0eflK+brcPcyjo0nxCdkC21ZMkmYHcjZPCSFOtdmMVJw7FPicQ0drjBm4uDLj3yEad/X56PL5st4fD83jcbnc6g9YwGi0zvA/cSORZzfJDvOaUbawOQFhRkHhfq4OOiyAQFnVSeWjOjWcYCXd1G43YhyxRTEOx/1q8GAaPFqqJKVoRcVFY6d0Eg8TNa2ff10YavcV5F4w71V/4Ch0nAOI4zgs8z0vTVO4+Qy3K0AhQc2vcjFvu3d6htdXKzr62naIrqy8gV8NVUX1rk29zD1T2gKAvdsP5fpDupLPDJGZQbfmmnBFtlqK+PxiO1Jn4Ymzc0Nit951ourIQR+FrzO/cIMoTI9s92/OXuV39qmR7U2mV8xp6mFcU2vDqi5ASKEKPQMBzWQ485dqIJ/P5pPc6VvN2AX42iKJ1WColUWxcXBCLVjE8pGPG3OVR9FkvBJyLDO99YcDKSBnWtGGYvMIcP05O7gW1y+u2wFig0IZTBjgJnrdQHkygnlKF3CrEAVFoNZG0lnWmm1St4Orurw6vSKcRiPh7t7Hc8Wpjgb1nZlx5SY2Hrgeh5vKbVbZwG9mhsRZjZc4YLiuO4MJL0GoqL4EFG3a7OArkmOFQIKO9UW4p9EXg0fJYpr4eyow7zTbil8dZJbRnTa9x+xLTMub+LrRCUZlHIGCRk7RC1jjk7YxCzmVQdDZtY8NNi8kJEUBtUIREau1VHO4XuosM/iqaWcvjm56rwsr3LWlMLzcsqpTvAUk2j23/9oxf3ZZ1lQ7m07qBnSQpKnhQHcVLmRHYb25fpIt20GoquIFHWR2pqcN1QIBA4Y5ERvR1aAVLOvet1t7tbP4bvrSb/vFaxu0oZzSyNnZoq6y+gAXsInHfYHmJslLhHiQl7geLPlCeLSFac9ls7HN2MqfyumwMPQeFTIlALct32FuM8fNdlfz27qmG26/iYn49LoLNNu2FlaT1QukSXebjpC/Czha0bE4n7+wURm+nsg2zdStNE0iksrWxk6W96K2xWVsRFXoznoyybDmFTFwbFdfV/KSVZdkBqrc7twY073W2iiAQRN3gQrdDvIgbbrYR7iGplk8ltFX+cYCohQP1pvcGAhkPJ9rgebNEBCZb0YNF1LZicObCgcW+Q6ZfGReGn4p+gFdvxkGNx4WJ1qAHeXqa+Q3GHPQezxXadzsba1y8QbQ/OZA9le3AywPPOb0/y7g7tBZq/HNZ8ZgfY4mwPBn/wsGdPq0aXLXINpAaRNSbhxy1B0YOU5vrpi4L8hk8To1/61C8ozMXpZX4NxOe7nlM5UcsiO9siCeOGyuCC+iDrnO1V9zadpt+GIgbhLw5n47N5kIn/wJ1M6dImWdjMUmUPXj6D0/Nkl17UGue1HiOp2Z9I1oc9WYfJdJd8zTVf9YTeXaJlI6HZhC7cTB7MdYE+/lHp/2dG+yyDjBQtDD6iDjtz0XHaAjXDy98bauj7wx/rHOTdhBfvB0wgjGjZb3l4NYACYIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgPsZ/CfvP9VL/KJoAAAAASUVORK5CYII="
-              alt="" />
-            <div class="ml-5">
-              <span class="mt-2 font-semibold">J&T EXPRESS</span>
-              <p class="text-slate-500 text-sm leading-6">Delivery: 2-4 Days</p>
+
+      </form>
+
+
+      <p class="mt-8 text-lg font-medium">Metode Pengiriman</p>
+      <form class="mt-3 grid gap-6">
+        <div class="flex flex-row m3">
+          <div class="basis-1/2 m-1">
+            <div class="relative">
+              <input class="peer hidden" id="radio_2" type="radio" name="radio" value="express" v-model="deliveryType"
+                checked />
+              <span
+                class="peer-checked:border-gray-700 absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
+              <label
+                class="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4"
+                for="radio_2">
+                <div class="ml-5">
+                  <span class="mt-2 font-semibold">Express</span>
+                  <p class="text-slate-500 text-sm leading-6">Delivery: 1-2 Days</p>
+                </div>
+              </label>
             </div>
-          </label>
+          </div>
+          <div class="basis-1/2 m-1">
+            <div class="relative">
+              <div class="relative">
+                <input class="peer hidden" id="radio_1" type="radio" value="standard" v-model="deliveryType" />
+                <span
+                  class="peer-checked:border-gray-700 absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
+                <label
+                  class="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4"
+                  for="radio_1">
+
+                  <div class="ml-5">
+                    <span class="mt-2 font-semibold"> Standard</span>
+                    <p class="text-slate-500 text-sm leading-6">Delivery: 2-4 Days</p>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
         </div>
       </form>
     </div>
@@ -120,35 +148,101 @@
                 alt="" />
             </div>
           </div>
-        <select type="text" name="billing-state"
-          class="w-full rounded-md border border-gray-200 px-4 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500">
-          <option value="State">Negara</option>
-        </select>
-        <input type="text" name="billing-zip"
-          class="flex-shrink-0 rounded-md border border-gray-200 px-4 py-3 text-sm shadow-sm outline-none sm:w-1/6 focus:z-10 focus:border-blue-500 focus:ring-blue-500"
-          placeholder="ZIP" />
-      </div>
+          <select type="text" name="billing-state"
+            class="w-full rounded-md border border-gray-200 px-4 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500">
+            <option value="State">Negara</option>
+          </select>
+          <input type="text" name="billing-zip"
+            class="flex-shrink-0 rounded-md border border-gray-200 px-4 py-3 text-sm shadow-sm outline-none sm:w-1/6 focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+            placeholder="ZIP" />
+        </div>
 
-      <!-- Total -->
-      <div class="mt-6 border-t border-b py-2">
-        <div class="flex items-center justify-between">
-          <p class="text-sm font-medium text-gray-900">Subtotal</p>
-          <p class="font-semibold text-gray-900">Rp 3.399.000 </p>
+        <!-- Total -->
+        <div class="mt-6 border-t border-b py-2">
+          <div class="flex items-center justify-between">
+            <p class="text-sm font-medium text-gray-900">Subtotal</p>
+            <p class="font-semibold text-gray-900">Rp.{{ totalHarga() }} </p>
+          </div>
+          <div class="flex items-center justify-between">
+            <p class="text-sm font-medium text-gray-900">Diskon</p>
+            <p class="font-semibold text-gray-900">0%</p>
+          </div>
         </div>
-        <div class="flex items-center justify-between">
-          <p class="text-sm font-medium text-gray-900">Diskon</p>
-          <p class="font-semibold text-gray-900">0%</p>
+        <div class="mt-6 flex items-center justify-between">
+          <p class="text-sm font-medium text-gray-900">Total</p>
+          <p class="text-2xl font-semibold text-gray-900">Rp.{{ totalHarga() }}</p>
         </div>
       </div>
-      <div class="mt-6 flex items-center justify-between">
-        <p class="text-sm font-medium text-gray-900">Total</p>
-        <p class="text-2xl font-semibold text-gray-900">Rp 3.399.000</p>
-      </div>
+      
+        <button type="button" @click="performCheckout"
+        class="mt-4 mb-8 w-full rounded-md bg-gray-900 px-6 py-3 font-medium text-white">Place Order</button>
+     
+
     </div>
-    <button class="order mt-4 mb-8 w-full rounded-md bg-gray-900 px-6 py-3 font-medium text-white">Place Order</button>
   </div>
-</div>
-<br>
-<br>
+  <br>
+  <br>
 </template>
+<script>
+import { mapGetters, mapActions } from 'vuex';
 
+export default {
+  data() {
+    return {
+      paymentType: '',
+      deliveryType: '',
+    };
+  },
+  computed: {
+    ...mapGetters('cart', ['getCart']),
+    ...mapGetters('cart', ['getCheckout']),
+  },
+  methods: {
+    ...mapActions('cart', ['fetchCart']),
+    ...mapActions('product', ['fetchProduk']),
+
+    ...mapActions('auth', ['getUserAddress']),
+    totalHarga() {
+      this.total = this.getCart.reduce((acc, product) => {
+        return acc + parseFloat(product.regular_price * product.qty);
+      }, 0);
+      return this.total.toFixed(2);
+    },
+    removeItem(cartId) {
+      this.$store.dispatch('cart/removeFromCart', cartId)
+    },
+    changeQty(cartId, typeQty) {
+      this.$store.dispatch('cart/changeQuantityCart', cartId, typeQty)
+    },
+    async performCheckout() {
+      // Collect the product IDs to be checked out
+      const cartItemIds = this.getCart.map(product => product.cart_id);
+      // Get user address
+      const userAddressResponse = await this.$store.dispatch('auth/getUserAddress');
+      const userAddressId = userAddressResponse.data[0].id;
+      const checkoutPayload = {
+        shippingAddress: userAddressId,
+        billingAddress: userAddressId,
+        paymentType: this.paymentType,
+        deliveryType: this.deliveryType,
+        cart_item_ids: cartItemIds,
+      };
+      await this.$store
+              .dispatch('cart/checkoutCart', checkoutPayload)
+              .then(() => {
+              this.$router.push(`/order/${this.getCheckout.order_code}`);
+            });
+     
+    },
+  },
+
+  //remove product
+
+  beforeMount() {
+    this.fetchProduk();
+  },
+  mounted() {
+    this.fetchCart();
+  }
+}
+</script>
