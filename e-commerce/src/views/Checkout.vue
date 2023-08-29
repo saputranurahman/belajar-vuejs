@@ -24,6 +24,7 @@
 
       <p class="mt-8 text-lg font-medium">Shipping Methods</p>
       <form class="mt-5 grid gap-6">
+        
         <div class="relative">
           <input class="peer hidden" id="radio_3" type="radio" value="cash_on_delivery" v-model="paymentType" />
           <span
@@ -40,7 +41,7 @@
             </div>
           </label>
         </div>
-
+        
       </form>
 
 
